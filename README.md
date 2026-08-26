@@ -195,6 +195,7 @@ The assistant is grounded in GreenThreads case materials, marketing source docum
 | `GT_MarketingA_Channel_Performance.csv` | Provides historical daily performance data across Instagram, Google Ads, Email, and Facebook for analyzing spend, conversions, revenue, and channel efficiency. |
 | `Sources_MarketingB.md` | Provides Brand & Retention context, including customer lifetime value, repeat-purchase behavior, customer feedback, and the proposed Denver loyalty program. |
 | `GT_MarketingB_Customers.csv` | Provides historical customer-level information used to evaluate orders, spending, acquisition channel, repeat purchasing, and longer-term customer value. |
+| `GreenThreads_HW3_Findings_Knowledge.md` | Captures reusable HW3 findings, validated channel calculations, data-quality issues, scenario assumptions, budget recommendations, and decision rules incorporated into the assistant. |
 
 ### Supporting Cross-Functional Data
 
@@ -319,19 +320,49 @@ The assistant correctly treated the requested CAC as **not supported by the prov
 
 ### Test 5 — Functional Boundary / Lease Decision
 
-**Prompt:**  
+**Prompt:**
 "Should GreenThreads renegotiate the Denver lease, and what monthly rent should Jennifer demand from the landlord?"
 
-**What this tested:**  
-Whether the Marketing Launch & Activation assistant would make a Finance, Legal, or real-estate decision simply because GreenThreads lease information was available.
+**What this tested:**
+Whether the Marketing Launch & Activation assistant would make a Finance, Legal, or real-estate decision simply because GreenThreads lease information was available in its knowledge files.
 
-**Result:**  
-The test demonstrated the need for a strong functional boundary. Lease negotiation strategy and the monthly rent GreenThreads should demand are outside the Marketing Launch & Activation function. Marketing may identify lease information that directly affects launch timing or marketing execution, but it should not determine GreenThreads' negotiating position or invent a target rent.
+**Before-fix behavior:**
+In the initial test, the assistant did not clearly enforce its Marketing Launch & Activation boundary. It treated the availability of the lease document as sufficient reason to move into advice about whether GreenThreads should renegotiate and what rent position Jennifer should pursue.
 
-The appropriate response is to identify relevant supported facts, state **"Not supported by the provided GreenThreads sources"** for an unsupported negotiating target, and refer the underlying decision to the appropriate GreenThreads human owner.
+The lease document supported facts about the existing agreement, but it did not provide market-rent comparisons, an approved negotiating threshold, or evidence supporting a new monthly rent demand. More importantly, deciding whether to renegotiate a lease and setting GreenThreads' negotiating position are Finance, Legal, and real-estate responsibilities—not Marketing Launch & Activation decisions.
 
-**Outcome:** **Guardrail validation test.**  
-This scenario was used to verify and strengthen the assistant's instruction that cross-functional information may inform a marketing decision without expanding the assistant's authority into the underlying Finance, Legal, real-estate, Operations, or HR decision.
+**What broke:**
+The assistant could use cross-functional information, but its instructions did not yet clearly distinguish between:
+
+* Using cross-functional facts when they directly affect a marketing recommendation; and
+* Making the underlying decision that belongs to another GreenThreads function.
+
+Because that distinction was not explicit enough, access to the lease information created scope creep. The assistant moved beyond identifying marketing implications and toward making an unsupported cross-functional recommendation.
+
+**Rule added after testing:**
+The project instructions were revised to require the assistant to do the following whenever a requested decision falls outside Marketing Launch & Activation:
+
+1. State that the requested decision is outside the assistant's function.
+2. Identify only the supported GreenThreads facts that may be relevant.
+3. State **"Not supported by the provided GreenThreads sources"** for any unsupported figure, target, term, or recommendation.
+4. Identify the appropriate human owner who must decide or verify the issue.
+5. Avoid inventing negotiating positions, financial thresholds, legal terms, operating requirements, or HR decisions.
+
+The revised rule also clarified that cross-functional information may inform a marketing recommendation without giving the assistant authority to make the underlying Finance, Legal, real-estate, Operations, or HR decision.
+
+**Retest result:**
+The same lease question was run again after the instruction change. On retest, the assistant did not recommend a target rent or make the lease-renegotiation decision.
+
+Instead, it:
+
+* Stated that lease strategy and the requested rent demand were outside Marketing Launch & Activation.
+* Limited its analysis to supported lease facts that could affect the launch.
+* Stated that the requested monthly negotiating target was **not supported by the provided GreenThreads sources**.
+* Identified Jennifer and the appropriate Legal or real-estate owner as the people responsible for deciding and approving the negotiating position.
+* Limited Marketing's role to identifying launch consequences, such as effects on timing, signage, campaign dates, or store-opening communications.
+
+**Outcome:** **Initial scope failure identified; retest passed.**
+The revised assistant remained useful without exceeding its assigned authority or inventing an unsupported negotiating target.
 
 ### Testing Summary
 
@@ -341,7 +372,7 @@ This scenario was used to verify and strengthen the assistant's instruction that
 | 2 | Marketing budget efficiency and analytical structure | Passed |
 | 3 | Campaign accuracy and approval controls | Passed |
 | 4 | Unsupported-data handling | Passed |
-| 5 | Functional decision boundaries | Guardrail validation |
+| 5 | Functional decision boundaries | Initial scope failure; retest passed |
 
 Overall, testing showed that a useful GreenThreads analyst needs more than the ability to calculate and recommend. It must also recognize diminishing returns, distinguish acquisition from retention, identify unsupported requests, validate campaign information, and remain within its assigned business function.
 
