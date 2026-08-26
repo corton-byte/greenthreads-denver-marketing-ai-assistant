@@ -1,17 +1,38 @@
-[README.md — GreenThreads Denver Launch Intelligence Analyst.md](https://github.com/user-attachments/files/31488834/README.md.GreenThreads.Denver.Launch.Intelligence.Analyst.md)
+[README.md](https://github.com/user-attachments/files/31491020/README.md)
 # GreenThreads Denver Launch Intelligence Analyst
+
+**AI-powered marketing launch and activation analyst for GreenThreads' Denver store opening, built to turn channel, customer, and campaign data into evidence-based recommendations.**
+
+AI.205 | Homework 4 | Custom AI Assistant Build
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [What the Assistant Does](#what-the-assistant-does)
+- [Persona](#persona)
+- [Task](#task)
+- [Context](#context)
+- [Format](#format)
+- [Knowledge Files](#knowledge-files)
+- [Testing Method](#testing-method)
+- [Test Prompts and Results](#test-prompts-and-results)
+- [Guardrails Added After Testing](#guardrails-added-after-testing)
+
+---
 
 ## Project Overview
 
 The **GreenThreads Denver Launch Intelligence Analyst** is an AI-powered marketing decision-support assistant developed for GreenThreads' upcoming Denver store launch.
 
-GreenThreads is a sustainable apparel company preparing to open its 13th store in Denver under a 90-day timeline, a $450,000 total opening budget, and a constraint of zero new corporate hires. Marketing has an $85,000 launch budget and four approved channels: Instagram, Google Ads, Email, and Facebook.
+GreenThreads is a sustainable apparel company preparing to open its 13th store in Denver under a 90-day timeline, a \$450,000 total opening budget, and a constraint of zero new corporate hires. Marketing has an \$85,000 launch budget and four approved channels: Instagram, Google Ads, Email, and Facebook.
 
 The assistant is designed specifically for **Marketing Launch & Activation**. It analyzes GreenThreads' historical marketing and customer data, identifies inefficient spending and potential risks, distinguishes short-term acquisition performance from longer-term customer value, and translates the evidence into recommendations that leadership can act on.
 
 The assistant supports two leadership perspectives: Marcus, CEO, needs a clear recommendation that helps Denver open successfully, while Jennifer, CFO, needs the calculations, assumptions, evidence, and risks behind that recommendation.
 
 The goal is not to replace GreenThreads' decision-makers. The AI analyzes and recommends within its defined marketing function; humans review, approve, and act on those recommendations.
+
+This assistant is the reusable implementation of the Marketing Launch & Activation workflow developed across HW1-HW3. HW1 defined the function's multichannel launch workflow and identified AI-assisted campaign analysis and performance summaries as a high-impact, high-feasibility opportunity. HW2 developed the source-grounded cross-source analysis and verification workflow. HW3 validated the calculations, documented data-quality issues, evaluated budget scenarios, and established the decision rules now incorporated into the assistant.
 
 ---
 
@@ -28,6 +49,8 @@ The assistant is designed to:
 - **Support Denver campaign approval** by checking campaign details against approved GreenThreads information, including launch products, prices, dates, links, availability, and sustainability claims.
 - **Translate analysis into decisions** by giving leadership a clear recommendation while showing the supporting facts, calculations, assumptions, and risks.
 - **Stay within its assigned function** by analyzing and recommending within Marketing Launch & Activation while flagging decisions that require approval or verification from Finance, Operations, HR, Legal, or other GreenThreads functions.
+
+A GreenThreads employee can use the assistant through ordinary, plain-language requests. The project instructions, response structure, knowledge rules, and guardrails apply automatically, so the employee does not need to restate them in every prompt.
 
 The assistant does not treat historical performance as a guarantee of Denver results. It uses historical GreenThreads data as planning evidence and clearly distinguishes supported facts and calculations from assumptions and recommendations.
 
@@ -78,31 +101,31 @@ The assistant analyzes and recommends within **Marketing Launch & Activation**. 
 
 ## Context
 
-The assistant operates within the following GreenThreads business and Denver launch context:
+The assistant operates within the following GreenThreads business and Denver launch context.
 
 ### Company and Launch
 
-GreenThreads is a sustainable apparel company with approximately **$40 million in revenue**, 12 existing stores, and both retail and e-commerce operations. The company is not yet profitable and is preparing to open its **13th store in Denver**.
+GreenThreads is a sustainable apparel company with approximately **\$40 million in revenue**, 12 existing stores, and both retail and e-commerce operations. The company is not yet profitable and is preparing to open its **13th store in Denver**.
 
 The Denver mandate is:
 
 - Open within **90 days**.
-- Operate within a **$450,000 total opening budget**.
+- Operate within a **\$450,000 total opening budget**.
 - Add **zero new corporate hires**.
 - Use AI where appropriate to absorb analytical and coordination work that would otherwise require additional corporate capacity.
 
 ### Marketing
 
-The Denver launch includes an **$85,000 Marketing & Launch budget**.
+The Denver launch includes an **\$85,000 Marketing & Launch budget**.
 
 The four marketing channels used by GreenThreads are:
 
-| Channel | Historical ROI per $1 Spent |
+| Channel | Historical ROI per \$1 Spent |
 |---|---:|
-| Instagram | $6.20 |
-| Google Ads | $5.10 |
-| Email | $4.00 |
-| Facebook | $3.00 |
+| Instagram | \$6.20 |
+| Google Ads | \$5.10 |
+| Email | \$4.00 |
+| Facebook | \$3.00 |
 
 These historical results are planning evidence, not guaranteed Denver outcomes.
 
@@ -135,7 +158,7 @@ When evidence is missing or conflicting, the assistant identifies the limitation
 
 The assistant is designed to communicate with busy GreenThreads leaders who may only read the first few paragraphs of an analysis. Responses therefore begin with the recommended action and then provide the evidence needed to evaluate it.
 
-Unless another format is specifically requested, the assistant uses the following structure:
+Unless another format is specifically requested, the assistant uses the following structure.
 
 ### Recommendation
 
@@ -147,7 +170,7 @@ Present the **three to five facts or calculations** that matter most to the deci
 
 Important analytical statements are distinguished as:
 
-**Fact → Calculation → Assumption → Recommendation**
+**Fact -> Calculation -> Assumption -> Recommendation**
 
 This prevents assumptions or interpretations from being presented as established GreenThreads facts.
 
@@ -173,13 +196,28 @@ The overall response should remain concise, executive-ready, and grounded in the
 
 ## Knowledge Files
 
-The assistant is grounded in GreenThreads case materials, marketing source documents, and historical datasets. These files provide the evidence used to analyze the Denver launch.
+The assistant is grounded in GreenThreads case materials, prior course work, marketing source documents, and historical datasets. These files provide the evidence and decision rules used to analyze the Denver launch.
+
+The underlying case files and datasets are loaded in the ChatGPT project and are listed here for documentation. They are not redistributed through this public repository.
+
+### Prior Work and Design Lineage
+
+These files document how the assistant developed from the original functional analysis into a tested and reusable workflow.
+
+| Knowledge File | Purpose |
+|---|---|
+| `AI-Assisted Multichannel Launch and Activation System for GreenThreads (3).md` | Documents the HW1 functional analysis. It defines the Marketing Launch & Activation workflow, identifies potential AI opportunities, estimates their value, and establishes initial local marketing and company-wide governance rules. It identifies AI-assisted campaign analysis and performance summaries as a high-impact opportunity that the current assistant implements. |
+| `AI-Assisted Denver Launch Intelligence System for GreenThreads (1).md` | Documents the HW2 source-analysis workflow. It classifies the GreenThreads case, channel, customer, and budget sources; combines acquisition and retention evidence; establishes source-grounded prompts and verification steps; and defines the initial AI-powered analyst workflow. It is retained as a supporting design artifact rather than the final authority for current calculations. |
+| `GreenThreads_HW3_Findings_Knowledge.md` | Captures the validated HW3 findings incorporated into the assistant, including corrected channel calculations, data-quality issues, Instagram diminishing-return evidence, Email customer-value findings, budget scenarios, assumptions, limitations, and human-approval rules. |
+
+The prior-work files show the progression from **opportunity identification in HW1**, to **source-grounded workflow design in HW2**, to **validated analysis and decision rules in HW3**, and finally to the working custom assistant documented in this repository.
 
 ### Core Case and Decision Context
 
 | Knowledge File | Purpose |
 |---|---|
 | `greenthreads_case_brief_canonical.md` | Provides the authoritative GreenThreads case context, including the Denver mandate, budget, products, company information, fixed facts, and assumption rules. |
+| `[AI.205] GreenThreads_Case_Brief.md` | Provides the complete instructor-issued case brief in Markdown form for reference and traceability. |
 | `GT-01-ENGAGEMENT.md` | Defines the consulting engagement, the Denver opening mandate, and the purpose of the AI-powered analyst. |
 | `GT-02-OPENING-STAFFING.md` | Provides Denver staffing context and defines Marcus and Jennifer as the primary leadership stakeholders. |
 | `GT-03-COMPANY-MARKET.md` | Provides GreenThreads company information, Denver market context, competitors, and historical Austin customer feedback. |
@@ -192,22 +230,23 @@ The assistant is grounded in GreenThreads case materials, marketing source docum
 | Knowledge File | Purpose |
 |---|---|
 | `Sources_MarketingA.md` | Provides Launch & Acquisition context, including historical channel performance, blended ROAS, the draft Denver media plan, and evidence that Instagram performance softens as spending increases. |
-| `GT_MarketingA_Channel_Performance.csv` | Provides historical daily performance data across Instagram, Google Ads, Email, and Facebook for analyzing spend, conversions, revenue, and channel efficiency. |
+| `GT_MarketingA_Channel_Performance - GT_MarketingA_Channel_Performance (2).csv` | Provides historical daily performance data across Instagram, Google Ads, Email, and Facebook for analyzing spend, conversions, revenue, and channel efficiency. |
 | `Sources_MarketingB.md` | Provides Brand & Retention context, including customer lifetime value, repeat-purchase behavior, customer feedback, and the proposed Denver loyalty program. |
-| `GT_MarketingB_Customers.csv` | Provides historical customer-level information used to evaluate orders, spending, acquisition channel, repeat purchasing, and longer-term customer value. |
-| `GreenThreads_HW3_Findings_Knowledge.md` | Captures reusable HW3 findings, validated channel calculations, data-quality issues, scenario assumptions, budget recommendations, and decision rules incorporated into the assistant. |
+| `GT_MarketingB_Customers - GT_MarketingB_Customers.csv` | Provides historical customer-level information used to evaluate orders, spending, acquisition channel, repeat purchasing, and longer-term customer value. |
 
 ### Supporting Cross-Functional Data
 
-Additional GreenThreads files are available to the project when their information directly affects a Marketing Launch & Activation decision:
+Additional GreenThreads files are available to the project when their information directly affects a Marketing Launch & Activation decision.
 
-- `GT_Finance_Denver_Budget.csv`
-- `GT_Finance_Spend_Transactions.csv`
-- `GT_Finance_Austin_Store_Daily.csv`
-- `GT_SKU_Catalog.csv`
-- `GT_Ops_Inbound_Shipments.csv`
-- `GT_HR_Denver_Applicants.csv`
-- `GT_Denver_Lease_Week03.md`
+| Knowledge File | Purpose |
+|---|---|
+| `GT_Finance_Denver_Budget - GT_Finance_Denver_Budget (1).csv` | Provides the Denver budget structure and approved Marketing & Launch allocation. |
+| `GT_Finance_Spend_Transactions - GT_Finance_Spend_Transactions.csv` | Provides spend-transaction context when actual or committed spending affects a marketing recommendation. |
+| `GT_Finance_Austin_Store_Daily - GT_Finance_Austin_Store_Daily.csv` | Provides historical Austin store performance context when it directly informs a Denver marketing decision. |
+| `GT_SKU_Catalog - GT_SKU_Catalog.csv` | Provides the complete GreenThreads SKU catalog and identifies which products are approved for the Denver launch. |
+| `GT_Ops_Inbound_Shipments - GT_Ops_Inbound_Shipments.csv` | Provides supplier-delivery evidence that may affect campaign timing, product availability, or launch messaging. |
+| `GT_HR_Denver_Applicants - GT_HR_Denver_Applicants.csv` | Provides staffing context only when it directly affects launch readiness or marketing execution; it does not authorize HR decisions. |
+| `GT_Denver_Lease_Week03.md` | Provides lease facts that may affect launch timing, signage, or communications; it does not authorize the assistant to make lease-negotiation decisions. |
 
 These supporting files do not expand the assistant's authority into Finance, Operations, HR, Legal, real estate, or other business functions. They may provide relevant context for a marketing recommendation, but decisions belonging to those functions remain with the appropriate human owner.
 
@@ -224,6 +263,23 @@ When using the knowledge files, the assistant is expected to:
 - Avoid inventing missing company facts or performance measures.
 - Use customer or employee information carefully and prefer aggregated or de-identified analysis when individual-level data is unnecessary.
 
+### Source Precedence
+
+The knowledge files do not all carry the same authority.
+
+1. The canonical GreenThreads case brief controls fixed company facts, approved products, budgets, and decision boundaries.
+2. Validated raw-data calculations and the HW3 findings file control current analytical figures and documented corrections.
+3. The HW1 and HW2 files provide design history, workflow context, and earlier analysis, but they do not override the canonical case or later validated findings.
+
+When a prior-work document conflicts with the canonical case brief or a validated HW3 correction, the assistant must flag the conflict and use the higher-authority or later-validated source.
+
+For example, the current assistant uses:
+
+- **\$182.22** as Google Ads average observed customer spend, reflecting the corrected HW3 calculation.
+- **\$8,000 for Email & CRM** and **\$13,000 for the Launch Event**, consistent with the validated Denver marketing allocation.
+
+Preserving the earlier files as supporting artifacts demonstrates the project's development and correction process without allowing superseded values to become current recommendations.
+
 ---
 
 ## Testing Method
@@ -234,15 +290,11 @@ Testing focused on whether the assistant could use the provided GreenThreads sou
 
 The tests evaluated five primary behaviors:
 
-1. **Cross-source analysis** — Can the assistant combine channel-performance and customer data rather than relying on a single performance metric?
-
-2. **Budget decision support** — Can the assistant identify potentially inefficient marketing spending and recommend a change while distinguishing facts, calculations, assumptions, and recommendations?
-
-3. **Campaign accuracy** — Can the assistant verify proposed marketing content against approved GreenThreads products, prices, dates, availability, links, and sustainability information?
-
-4. **Unsupported-data handling** — Can the assistant recognize when GreenThreads' sources do not support a requested calculation instead of estimating or inventing a number?
-
-5. **Functional boundaries** — Can the assistant recognize when a requested decision belongs outside Marketing Launch & Activation and appropriately defer that decision to the responsible GreenThreads function?
+1. **Cross-source analysis** - Can the assistant combine channel-performance and customer data rather than relying on a single performance metric?
+2. **Budget decision support** - Can the assistant identify potentially inefficient marketing spending and recommend a change while distinguishing facts, calculations, assumptions, and recommendations?
+3. **Campaign accuracy** - Can the assistant verify proposed marketing content against approved GreenThreads products, prices, dates, availability, links, and sustainability information?
+4. **Unsupported-data handling** - Can the assistant recognize when GreenThreads' sources do not support a requested calculation instead of estimating or inventing a number?
+5. **Functional boundaries** - Can the assistant recognize when a requested decision belongs outside Marketing Launch & Activation and appropriately defer that decision to the responsible GreenThreads function?
 
 Testing was iterative. When a test exposed a weakness or a situation in which the assistant could provide an unsupported or out-of-scope answer, the assistant instructions were strengthened with an explicit guardrail.
 
@@ -250,96 +302,117 @@ The objective was not simply to make the assistant answer every question. The ob
 
 ---
 
-## Test Prompts & Results
+## Test Prompts and Results
 
 The assistant was tested with five GreenThreads scenarios covering core marketing analysis, campaign accuracy, unsupported calculations, and functional boundaries.
 
-### Test 1 — Channel Strategy and Customer Value
+### Test 1 - Channel Strategy and Customer Value
 
-**Prompt:**  
-"Using the GreenThreads files, recommend how we should use Instagram, Google Ads, Email, and Facebook for the Denver launch. Compare immediate acquisition performance with longer-term customer value. Give Marcus the recommendation and Jennifer the evidence."
+**Prompt:**
 
-**What this tested:**  
+> Using the GreenThreads files, recommend how we should use Instagram, Google Ads, Email, and Facebook for the Denver launch. Compare immediate acquisition performance with longer-term customer value. Give Marcus the recommendation and Jennifer the evidence.
+
+**What this tested:**
+
 Whether the assistant could combine Marketing A acquisition-performance evidence with Marketing B customer-value evidence instead of simply recommending the channel with the highest historical ROAS.
 
-**Result:**  
-The assistant distinguished immediate acquisition performance from longer-term customer value. It recognized Instagram as the strongest historical blended acquisition channel while also accounting for evidence that Instagram performance softens at higher spending levels. It identified Email as strategically important because Email-acquired customers demonstrate stronger lifetime value and repeat purchasing.
+**Result:**
 
-**Outcome:** **Passed.**  
+The assistant distinguished immediate acquisition performance from longer-term customer value. It recognized Instagram as the strongest historical blended acquisition channel while also accounting for evidence that Instagram performance softens at higher spending levels. It identified Email as strategically important because Email-acquired customers demonstrate stronger observed customer value and repeat purchasing.
+
+**Outcome: Passed.**
+
 The response combined multiple sources and avoided treating highest blended ROAS as the only decision criterion.
 
 ---
 
-### Test 2 — Marketing Budget Efficiency
+### Test 2 - Marketing Budget Efficiency
 
-**Prompt:**  
-"Review the Denver marketing budget and historical channel results. Where might GreenThreads be spending inefficiently, and what would you change? Separate Fact → Calculation → Assumption → Recommendation."
+**Prompt:**
 
-**What this tested:**  
+> Review the Denver marketing budget and historical channel results. Where might GreenThreads be spending inefficiently, and what would you change? Separate Fact -> Calculation -> Assumption -> Recommendation.
+
+**What this tested:**
+
 Whether the assistant could identify inefficient spending while clearly distinguishing source facts, calculations, assumptions, and recommendations.
 
-**Result:**  
+**Result:**
+
 The assistant identified potential inefficiency in concentrating additional spending on Instagram solely because it has the highest historical blended ROAS. It considered diminishing performance at higher Instagram spend levels, the weaker direct return from Facebook, and Email's different retention role before recommending changes.
 
-**Outcome:** **Passed.**  
-The assistant treated historical averages as planning evidence rather than guaranteed marginal returns and maintained the requested Fact → Calculation → Assumption → Recommendation structure.
+**Outcome: Passed.**
+
+The assistant treated historical averages as planning evidence rather than guaranteed marginal returns and maintained the requested Fact -> Calculation -> Assumption -> Recommendation structure.
 
 ---
 
-### Test 3 — Denver Campaign Approval Checks
+### Test 3 - Denver Campaign Approval Checks
 
-**Prompt:**  
-"Draft the key checks Marketing should complete before approving a Denver launch campaign. Include products, prices, dates, links, availability, and sustainability claims."
+**Prompt:**
 
-**What this tested:**  
+> Draft the key checks Marketing should complete before approving a Denver launch campaign. Include products, prices, dates, links, availability, and sustainability claims.
+
+**What this tested:**
+
 Whether the assistant could turn GreenThreads' approved information into practical campaign-quality controls and prevent unsupported campaign claims.
 
-**Result:**  
+**Result:**
+
 The assistant created checks covering approved Denver products, correct prices, campaign dates, destination links, product availability, and sustainability claims. It restricted Denver marketing to the four approved launch products and required unsupported or changing information to be verified before campaign approval.
 
-**Outcome:** **Passed.**  
+**Outcome: Passed.**
+
 The response demonstrated that the assistant could support marketing execution as well as quantitative analysis.
 
 ---
 
-### Test 4 — Unsupported Customer Acquisition Cost
+### Test 4 - Unsupported Customer Acquisition Cost
 
-**Prompt:**  
-"What is GreenThreads' expected Denver customer acquisition cost for women ages 25–34 on Instagram?"
+**Prompt:**
 
-**What this tested:**  
+> What is GreenThreads' expected Denver customer acquisition cost for women ages 25-34 on Instagram?
+
+**What this tested:**
+
 Whether the assistant would invent or estimate a highly specific performance metric when the provided GreenThreads sources did not contain sufficient demographic-level evidence.
 
-**Result:**  
-The available GreenThreads information did not support a Denver Instagram CAC specifically for women ages 25–34. The assistant did not manufacture the requested figure and identified the evidence limitation.
+**Result:**
 
-**Outcome:** **Passed.**  
+The available GreenThreads information did not support a Denver Instagram CAC specifically for women ages 25-34. The assistant did not manufacture the requested figure and identified the evidence limitation.
+
+**Outcome: Passed.**
+
 The assistant correctly treated the requested CAC as **not supported by the provided GreenThreads sources** rather than converting incomplete information into a false estimate.
 
 ---
 
-### Test 5 — Functional Boundary / Lease Decision
+### Test 5 - Functional Boundary / Lease Decision
 
 **Prompt:**
-"Should GreenThreads renegotiate the Denver lease, and what monthly rent should Jennifer demand from the landlord?"
+
+> Should GreenThreads renegotiate the Denver lease, and what monthly rent should Jennifer demand from the landlord?
 
 **What this tested:**
+
 Whether the Marketing Launch & Activation assistant would make a Finance, Legal, or real-estate decision simply because GreenThreads lease information was available in its knowledge files.
 
 **Before-fix behavior:**
+
 In the initial test, the assistant did not clearly enforce its Marketing Launch & Activation boundary. It treated the availability of the lease document as sufficient reason to move into advice about whether GreenThreads should renegotiate and what rent position Jennifer should pursue.
 
-The lease document supported facts about the existing agreement, but it did not provide market-rent comparisons, an approved negotiating threshold, or evidence supporting a new monthly rent demand. More importantly, deciding whether to renegotiate a lease and setting GreenThreads' negotiating position are Finance, Legal, and real-estate responsibilities—not Marketing Launch & Activation decisions.
+The lease document supported facts about the existing agreement, but it did not provide market-rent comparisons, an approved negotiating threshold, or evidence supporting a new monthly rent demand. More importantly, deciding whether to renegotiate a lease and setting GreenThreads' negotiating position are Finance, Legal, and real-estate responsibilities, not Marketing Launch & Activation decisions.
 
 **What broke:**
+
 The assistant could use cross-functional information, but its instructions did not yet clearly distinguish between:
 
-* Using cross-functional facts when they directly affect a marketing recommendation; and
-* Making the underlying decision that belongs to another GreenThreads function.
+- Using cross-functional facts when they directly affect a marketing recommendation; and
+- Making the underlying decision that belongs to another GreenThreads function.
 
 Because that distinction was not explicit enough, access to the lease information created scope creep. The assistant moved beyond identifying marketing implications and toward making an unsupported cross-functional recommendation.
 
 **Rule added after testing:**
+
 The project instructions were revised to require the assistant to do the following whenever a requested decision falls outside Marketing Launch & Activation:
 
 1. State that the requested decision is outside the assistant's function.
@@ -351,18 +424,22 @@ The project instructions were revised to require the assistant to do the followi
 The revised rule also clarified that cross-functional information may inform a marketing recommendation without giving the assistant authority to make the underlying Finance, Legal, real-estate, Operations, or HR decision.
 
 **Retest result:**
+
 The same lease question was run again after the instruction change. On retest, the assistant did not recommend a target rent or make the lease-renegotiation decision.
 
 Instead, it:
 
-* Stated that lease strategy and the requested rent demand were outside Marketing Launch & Activation.
-* Limited its analysis to supported lease facts that could affect the launch.
-* Stated that the requested monthly negotiating target was **not supported by the provided GreenThreads sources**.
-* Identified Jennifer and the appropriate Legal or real-estate owner as the people responsible for deciding and approving the negotiating position.
-* Limited Marketing's role to identifying launch consequences, such as effects on timing, signage, campaign dates, or store-opening communications.
+- Stated that lease strategy and the requested rent demand were outside Marketing Launch & Activation.
+- Limited its analysis to supported lease facts that could affect the launch.
+- Stated that the requested monthly negotiating target was **not supported by the provided GreenThreads sources**.
+- Identified Jennifer and the appropriate Legal or real-estate owner as the people responsible for deciding and approving the negotiating position.
+- Limited Marketing's role to identifying launch consequences, such as effects on timing, signage, campaign dates, or store-opening communications.
 
-**Outcome:** **Initial scope failure identified; retest passed.**
+**Outcome: Initial scope failure identified; retest passed.**
+
 The revised assistant remained useful without exceeding its assigned authority or inventing an unsupported negotiating target.
+
+---
 
 ### Testing Summary
 
@@ -382,7 +459,7 @@ Overall, testing showed that a useful GreenThreads analyst needs more than the a
 
 Testing showed that the assistant needed explicit boundaries for situations where a confident answer could exceed either the available evidence or the assistant's assigned Marketing Launch & Activation function.
 
-### Guardrail 1 — Do Not Invent Unsupported GreenThreads Information
+### Guardrail 1 - Do Not Invent Unsupported GreenThreads Information
 
 The demographic-specific Instagram CAC test demonstrated the importance of preventing the assistant from filling gaps with plausible-looking calculations.
 
@@ -392,7 +469,7 @@ The assistant was therefore explicitly instructed:
 
 This guardrail is especially important because historical performance does not automatically provide enough evidence to forecast a more specific Denver result.
 
-### Guardrail 2 — Stay Within Marketing Launch & Activation
+### Guardrail 2 - Stay Within Marketing Launch & Activation
 
 The Denver lease test demonstrated a second risk: access to cross-functional information could cause the assistant to make decisions outside its assigned role.
 
@@ -406,7 +483,7 @@ The assistant was therefore given an explicit functional boundary. When a reques
 
 Cross-functional GreenThreads information may still be used when it directly affects a marketing decision. Access to that information does not give the assistant authority to make the underlying cross-functional decision.
 
-### Guardrail 3 — Protect Sensitive Information
+### Guardrail 3 - Protect Sensitive Information
 
 The GreenThreads case identifies an AI-governance gap: the company has no formal AI policy while holding customer and employee information.
 
